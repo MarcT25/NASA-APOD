@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image of the day</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="./config.js"></script>
+    <script type="module" src="./main.js"></script>
+</head>
+<body>
+
+
+    <div class="cotainer">
+        <h1 id="title">APOD: Astronomy Picture of the Day</h1>
+        <hr id="divider"/>
+        <h3 id="img-name"></h3>
+        <h3 class="inline">Today's date: </h3>
+        <h3 class="inline" id="current-date"></h3>
+        <img id="image">
+        <hr id="divider"/>
+        <p id="description"></p>
+
+        <hr id="divider"/>
+        <h3>Want to see more APOD? Enter a date to search for that APOD</h3>
+        <form action="">
+            <label for="date">APOD from specific date:</label>
+            <input type="date" id="date" name="date" value="">
+            <input type="submit" value="Submit">
+          </form>
+    </div>
+    
+</body>
+</html>
