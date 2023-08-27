@@ -1,5 +1,7 @@
 # NASA-APOD
-Using NASA's API to fetch and display the Astrology Picture of the Day, along with it's name and it's description.
+Using NASA's API to fetch and display the Astrology Picture of the Day(APOD), along with it's name and it's description.
 
-# Work in progress
-adding a feature for users to provide a date and this will provide the Astrology Picture of the Day for that given date.
+Users can provide a date into the date picker and it will provide the APOD for that given date.
+
+# in progress
+Adding a random button, which will fetch an APOD for a random date.

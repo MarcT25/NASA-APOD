@@ -1,15 +1,19 @@
 import  config  from "./config.js";
 
+const APIKey = config.accessKey;
+//reference to datepicker in the html element
+const datePicker = document.getElementById("datepicker");
+
+
 //fetch data from NASA API
 async function getData() {
-
-  const APIKey = config.accessKey;
 
   try{
     let response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${APIKey}`);
     const data = await response.json();
-    console.log(data);
+
     useData(data);
+    
   } catch(error) {
     console.log(error);
   }
@@ -30,9 +34,25 @@ function currentDate() {
 }
 
 
-
-
 window.onload = function() {
   getData();
   currentDate();
+
+  document.getElementById("datepicker").addEventListener("change", async () => {
+    
+    const day = datePicker.value;
+    var date = new Date(day);
+
+    try{
+      let response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${APIKey}&date=${day}`);
+  
+      const data = await response.json();
+  
+      useData(data);
+  
+    } catch(error) {
+      console.log(error);
+    }
+    document.getElementById("current-date").innerHTML = date.toLocaleDateString();
+  });
 }
