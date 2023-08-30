@@ -3,5 +3,9 @@ Using NASA's API to fetch and display the Astrology Picture of the Day(APOD), al
 
 Users can provide a date into the date picker and it will provide the APOD for that given date.
 
-# in progress
-Adding a random button, which will fetch an APOD for a random date.
+User can generate a random APOD by clicking on the "random APOD" buttom.
+ 
+# In Progress:
+
+# To Fix:
+The date's are not display correctly when the random button and the date-picker are used.

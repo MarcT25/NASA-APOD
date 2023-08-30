@@ -13,7 +13,7 @@ async function getData() {
     const data = await response.json();
 
     useData(data);
-    
+
   } catch(error) {
     console.log(error);
   }
@@ -33,10 +33,41 @@ function currentDate() {
   document.getElementById("current-date").innerHTML = date.toLocaleDateString();
 }
 
+//returns random date
+ function randomDate() {
+
+  const startDate = new Date(1995,5,16); // Start date (year, month, day)
+  const endDate = new Date(); // Current date
+
+  const randomTimestamp = Math.random() * (endDate - startDate) + startDate.getTime();
+  const randomDate = new Date(randomTimestamp);
+
+  return randomDate.toISOString().slice(0,10);
+
+}
+
 
 window.onload = function() {
   getData();
   currentDate();
+
+  document.getElementById("random").addEventListener("click", async () => {
+    
+    let date = randomDate();
+
+    try{
+      let response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${APIKey}&date=${date}`);
+      const data = await response.json();
+  
+      useData(data);
+  
+    } catch(error) {
+      console.log(error);
+    }
+
+    document.getElementById("current-date").innerHTML = date.toLocaleDateString();
+
+  });
 
   document.getElementById("datepicker").addEventListener("change", async () => {
     
